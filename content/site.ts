@@ -20,7 +20,6 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/ajay-srivatsan-3aa5131a0",
   hackerrank: "https://www.hackerrank.com/profile/ajju2004srivats1",
   url: "https://ajju2004srivatsan-cloud.github.io",
-  resumePath: "/resume.pdf",
   description:
     "Portfolio of Ajay Srivatsan R., a software engineer working on embedded systems, UAV communication, autonomous navigation, and applied machine learning.",
 } as const;
@@ -937,7 +936,6 @@ export const nav = [
   { href: "/achievements/", label: "Achievements" },
   { href: "/skills/", label: "Skills" },
   { href: "/photos/", label: "Photos" },
-  { href: "/resume/", label: "Resume" },
   { href: "/contact/", label: "Contact" },
 ];
 

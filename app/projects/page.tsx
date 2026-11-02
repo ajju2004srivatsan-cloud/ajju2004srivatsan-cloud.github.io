@@ -5,7 +5,7 @@ import { projects } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Engineering projects from Ajay Srivatsan R.'s resume and public repositories.",
+  description: "Engineering projects and public repositories by Ajay Srivatsan R.",
 };
 
 export default function ProjectsPage() {
@@ -16,11 +16,9 @@ export default function ProjectsPage() {
     <Reveal>
       <p className="kicker">Projects</p>
       <h2 className="page-title">Engineering work, then the public code.</h2>
-      <p className="quiet">
-        The first group is the project record from the resume. The second group is summarized from public repositories.
-      </p>
+      <p className="quiet">Selected work, then the public repositories.</p>
       <section className="section">
-        <h2>Resume</h2>
+        <h2>Selected</h2>
         {selected.map((project) => (
           <article key={project.slug} className="entry">
             <p className="kicker">{project.category}</p>

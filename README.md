@@ -2,7 +2,7 @@
 
 Personal engineering site for [ajju2004srivatsan-cloud.github.io](https://ajju2004srivatsan-cloud.github.io/). Static Next.js export. No paid backend.
 
-Biography, roles, education, projects, talks, and skills are edited in [`content/site.ts`](content/site.ts). They follow the resume PDF in `public/resume.pdf` and the public GitHub account `ajju2004srivatsan-cloud`. Empty award, certification, and sports sections stay empty until you add real entries.
+Biography, roles, education, projects, talks, and skills are edited in [`content/site.ts`](content/site.ts). The resume PDF is not published on this site.
 
 ## Local development
 
@@ -23,16 +23,15 @@ npx serve out
 ## Update content
 
 - Profile, experience, projects, research, skills, achievements: `content/site.ts`
-- Replace the downloadable resume: `public/resume.pdf`
+- Photographs: add files under `public/photos/` and list them in the `photos` array
 - Repository categories and featured flags: `repositoryCatalog` in `content/site.ts`
 - LinkedIn and HackerRank: `site.linkedin` and `site.hackerrank`
-- Photographs: add files under `public/photos/` and list them in the `photos` array
 
 The contact form opens the visitor’s email app with a message to `ajju2004srivatsan@gmail.com`. It does not store submissions.
 
 ## GitHub Pages
 
-The live URL is a user site, so pages are served from the domain root. `NEXT_PUBLIC_BASE_PATH` stays empty. Links, the resume, the portrait, and the repository cache all use that prefix, which means a project-site deploy only needs the env var changed to `/<repository>`.
+The live URL is a user site, so pages are served from the domain root. `NEXT_PUBLIC_BASE_PATH` stays empty. Links, the portrait, and the repository cache all use that prefix, which means a project-site deploy only needs the env var changed to `/<repository>`.
 
 ### One-time setup
 
@@ -54,5 +53,5 @@ The workflow file is `.github/workflows/pages.yml`. It installs dependencies, bu
 - `/` home
 - `/projects/` and a project path such as `/projects/gnss-denied-drone-navigation/`
 - `/github/` still lists repositories if the API rate limit is exhausted
-- `/resume.pdf` downloads
+- `/photos/` shows the gallery
 - Portrait and fonts load, including on a phone-width window

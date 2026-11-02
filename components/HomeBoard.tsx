@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { PhotoGallery } from "@/components/PhotoGallery";
 import type { Photo, ProjectCategory } from "@/content/site";
 
@@ -148,42 +148,39 @@ export function HomeBoard({
   return (
     <div className="home">
       <section className="stage">
-        <div>
+        <img className="portrait" src={portrait} alt="" width={460} height={460} />
+        <div className="stage-copy">
           <p className="kicker">Profile</p>
-          <h1 className="profile-name">{name}</h1>
           <p className="quiet">
-            {role}, {organization}
+            {role}
+            <br />
+            {organization}
             <br />
             {location}
           </p>
-          <p className="hint">Click a word. The shelf follows.</p>
-          <div className="words" role="group" aria-label="Focus">
-            {lenses.map((item) => (
-              <button key={item.id} type="button" aria-pressed={item.id === lensId} onClick={() => chooseLens(item)}>
-                {item.word}
-              </button>
-            ))}
-          </div>
-          <p className="lens-line">{lens.line}</p>
-          {introduction.map((paragraph) => (
-            <p key={paragraph} className="quiet">
-              {paragraph}
-            </p>
-          ))}
         </div>
-        <aside className="stage-side">
-          <img className="portrait" src={portrait} alt="" width={460} height={460} />
-          <DotField />
-          <p className="kicker">Move across the field</p>
-        </aside>
       </section>
+      <h1 className="profile-name">{name}</h1>
+      <p className="hint">Click a word. The shelf follows.</p>
+      <div className="words" role="group" aria-label="Focus">
+        {lenses.map((item) => (
+          <button key={item.id} type="button" aria-pressed={item.id === lensId} onClick={() => chooseLens(item)}>
+            {item.word}
+          </button>
+        ))}
+      </div>
+      <p className="lens-line">{lens.line}</p>
+      {introduction.map((paragraph) => (
+        <p key={paragraph} className="quiet lead">
+          {paragraph}
+        </p>
+      ))}
 
       <section className="section">
         <div className="section-head">
           <h2>Work</h2>
           <label className="search">
-            <span className="kicker">Find</span>
-            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="UAV, ECG, Aakara" />
+            <input aria-label="Find" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Find a project" />
           </label>
         </div>
         <div className="filters" role="group" aria-label="Work areas">
@@ -248,86 +245,4 @@ export function HomeBoard({
       </section>
     </div>
   );
-}
-
-function DotField() {
-  const ref = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = ref.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-    const surface = canvas;
-    const pen = ctx;
-    let pointer = { x: -120, y: -120 };
-    let frame = 0;
-
-    function resize() {
-      const rect = surface.getBoundingClientRect();
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      surface.width = Math.floor(rect.width * dpr);
-      surface.height = Math.floor(rect.height * dpr);
-      pen.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-
-    function draw() {
-      const rect = surface.getBoundingClientRect();
-      const color = getComputedStyle(document.documentElement).getPropertyValue("--ink").trim() || "#171717";
-      pen.clearRect(0, 0, rect.width, rect.height);
-      pen.fillStyle = color;
-      const gap = 16;
-      for (let y = 12; y < rect.height - 8; y += gap) {
-        for (let x = 12; x < rect.width - 8; x += gap) {
-          const distance = Math.hypot(x - pointer.x, y - pointer.y);
-          const near = distance < 78;
-          pen.globalAlpha = near ? 0.95 : 0.28;
-          pen.beginPath();
-          pen.arc(x, y, near ? 2.3 - (distance / 78) * 1.2 : 1, 0, Math.PI * 2);
-          pen.fill();
-        }
-      }
-      pen.globalAlpha = 1;
-    }
-
-    function onMove(event: PointerEvent) {
-      const rect = surface.getBoundingClientRect();
-      pointer = { x: event.clientX - rect.left, y: event.clientY - rect.top };
-    }
-
-    function onLeave() {
-      pointer = { x: -120, y: -120 };
-    }
-
-    resize();
-    draw();
-    const observer = new ResizeObserver(() => {
-      resize();
-      draw();
-    });
-    observer.observe(surface);
-    surface.addEventListener("pointermove", onMove);
-    surface.addEventListener("pointerleave", onLeave);
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    function loop() {
-      draw();
-      frame = requestAnimationFrame(loop);
-    }
-    if (!reduce) frame = requestAnimationFrame(loop);
-    else {
-      surface.addEventListener("pointermove", draw);
-      surface.addEventListener("pointerleave", draw);
-    }
-
-    return () => {
-      cancelAnimationFrame(frame);
-      observer.disconnect();
-      surface.removeEventListener("pointermove", onMove);
-      surface.removeEventListener("pointerleave", onLeave);
-      surface.removeEventListener("pointermove", draw);
-      surface.removeEventListener("pointerleave", draw);
-    };
-  }, []);
-
-  return <canvas ref={ref} className="field" aria-hidden="true" />;
 }

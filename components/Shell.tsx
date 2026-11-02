@@ -4,7 +4,7 @@ import { Nav } from "./Nav";
 
 export function Shell({ children }: { children: React.ReactNode }) {
   return (
-    <>
+    <div className="frame">
       <a href="#content" className="text-link" style={{ position: "absolute", left: "-999px" }}>
         Skip to content
       </a>
@@ -28,6 +28,6 @@ export function Shell({ children }: { children: React.ReactNode }) {
           <a href={`mailto:${site.email}`}>Email</a>
         </footer>
       </div>
-    </>
+    </div>
   );
 }

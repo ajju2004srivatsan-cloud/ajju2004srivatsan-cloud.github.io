@@ -230,12 +230,41 @@ h2, .page-title, .entry h3 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 0.8rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem 0.8rem;
 }
 
 .gallery figure { margin: 0; }
-.gallery img { width: 100%; height: 180px; object-fit: cover; display: block; }
+
+.gallery button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.gallery img, .viewer img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gallery figcaption { margin-top: 0.35rem; font-size: 0.8rem; }
+
+.viewer {
+  width: min(960px, calc(100vw - 1.5rem));
+  max-height: calc(100vh - 1.5rem);
+  padding: 0;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+}
+
+.viewer::backdrop { background: rgba(0, 0, 0, 0.78); }
+
+.viewer img { max-height: calc(100vh - 1.5rem); object-fit: contain; background: #000; }
 
 .toolbar { display: grid; gap: 0.7rem; margin: 1rem 0; }
 
@@ -337,7 +366,7 @@ h2, .page-title, .entry h3 {
     order: 5;
     padding-top: 0.8rem;
   }
-  .media-grid, .repo { grid-template-columns: 1fr; }
+  .media-grid, .repo, .gallery { grid-template-columns: 1fr; }
   .spaced { letter-spacing: 0.22em; }
 }
 

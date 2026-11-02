@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import { PhotoGallery } from "@/components/PhotoGallery";
 import { Reveal } from "@/components/Reveal";
 import { photography, photos } from "@/content/site";
-import { withBase } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Photos",
@@ -13,19 +13,8 @@ export default function PhotosPage() {
     <Reveal>
       <p className="kicker">Photos</p>
       <h2 className="page-title">Photographs</h2>
-      <p>{photography.line}</p>
-      {photos.length === 0 ? (
-        <p className="empty">{photography.empty}</p>
-      ) : (
-        <div className="gallery">
-          {photos.map((photo) => (
-            <figure key={photo.src}>
-              <img src={withBase(photo.src)} alt={photo.alt} />
-              {photo.caption ? <figcaption>{photo.caption}</figcaption> : null}
-            </figure>
-          ))}
-        </div>
-      )}
+      <p>{photography.line} Select one to open the larger frame.</p>
+      {photos.length === 0 ? <p className="empty">{photography.empty}</p> : <PhotoGallery photos={photos} />}
     </Reveal>
   );
 }

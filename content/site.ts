@@ -781,11 +781,127 @@ export const photography = {
 
 export type Photo = {
   src: string;
+  thumb: string;
   alt: string;
-  caption?: string;
+  caption: string;
+  width: number;
+  height: number;
+  thumbWidth: number;
+  thumbHeight: number;
 };
 
-export const photos: Photo[] = [];
+export const photos: Photo[] = [
+  {
+    src: "/photos/kingfisher.webp",
+    thumb: "/photos/kingfisher-thumb.webp",
+    alt: "Kingfisher perched on a branch",
+    caption: "Kingfisher",
+    width: 1024,
+    height: 767,
+    thumbWidth: 640,
+    thumbHeight: 480,
+  },
+  {
+    src: "/photos/painted-stork.webp",
+    thumb: "/photos/painted-stork-thumb.webp",
+    alt: "Painted stork feeding in shallow water",
+    caption: "Painted stork",
+    width: 1024,
+    height: 682,
+    thumbWidth: 640,
+    thumbHeight: 427,
+  },
+  {
+    src: "/photos/grey-heron.webp",
+    thumb: "/photos/grey-heron-thumb.webp",
+    alt: "Grey heron standing in front of foliage",
+    caption: "Grey heron",
+    width: 1024,
+    height: 682,
+    thumbWidth: 640,
+    thumbHeight: 427,
+  },
+  {
+    src: "/photos/spotted-deer.webp",
+    thumb: "/photos/spotted-deer-thumb.webp",
+    alt: "Spotted deer in green undergrowth",
+    caption: "Spotted deer",
+    width: 1024,
+    height: 682,
+    thumbWidth: 640,
+    thumbHeight: 427,
+  },
+  {
+    src: "/photos/blue-flycatcher.webp",
+    thumb: "/photos/blue-flycatcher-thumb.webp",
+    alt: "Blue flycatcher on a branch",
+    caption: "Blue flycatcher",
+    width: 768,
+    height: 1024,
+    thumbWidth: 640,
+    thumbHeight: 854,
+  },
+  {
+    src: "/photos/palm-squirrel.webp",
+    thumb: "/photos/palm-squirrel-thumb.webp",
+    alt: "Palm squirrel eating on a tree",
+    caption: "Palm squirrel",
+    width: 768,
+    height: 1024,
+    thumbWidth: 640,
+    thumbHeight: 854,
+  },
+  {
+    src: "/photos/kite.webp",
+    thumb: "/photos/kite-thumb.webp",
+    alt: "Close portrait of a kite",
+    caption: "Kite",
+    width: 1024,
+    height: 767,
+    thumbWidth: 640,
+    thumbHeight: 480,
+  },
+  {
+    src: "/photos/brahminy-kite.webp",
+    thumb: "/photos/brahminy-kite-thumb.webp",
+    alt: "Close portrait of a brahminy kite",
+    caption: "Brahminy kite",
+    width: 1024,
+    height: 768,
+    thumbWidth: 640,
+    thumbHeight: 480,
+  },
+  {
+    src: "/photos/peacock.webp",
+    thumb: "/photos/peacock-thumb.webp",
+    alt: "Peacock, head and neck",
+    caption: "Peacock",
+    width: 817,
+    height: 1024,
+    thumbWidth: 640,
+    thumbHeight: 803,
+  },
+  {
+    src: "/photos/giant-squirrel.webp",
+    thumb: "/photos/giant-squirrel-thumb.webp",
+    alt: "Indian giant squirrel hanging from a branch",
+    caption: "Indian giant squirrel",
+    width: 1024,
+    height: 768,
+    thumbWidth: 640,
+    thumbHeight: 480,
+  },
+  {
+    src: "/photos/myna.webp",
+    thumb: "/photos/myna-thumb.webp",
+    alt: "Myna perched on a branch",
+    caption: "Myna",
+    width: 1024,
+    height: 767,
+    thumbWidth: 640,
+    thumbHeight: 480,
+  },
+];
 
 export const categories: ProjectCategory[] = [
   "AI/ML",

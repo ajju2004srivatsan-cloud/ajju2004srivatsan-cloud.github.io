@@ -13,7 +13,7 @@ export default function AchievementsPage() {
   return (
     <Reveal>
       <p className="kicker">Achievements</p>
-      <h2 className="page-title">Academic record.</h2>
+      <h2 className="page-title">Academic record and table tennis.</h2>
       {groups.map((group) => {
         const items = achievements.filter((item) => item.group === group);
         return (

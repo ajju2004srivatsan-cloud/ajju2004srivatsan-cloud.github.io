@@ -17,7 +17,8 @@ export const site = {
   phoneHref: "tel:+917418694168",
   github: "https://github.com/ajju2004srivatsan-cloud",
   githubUser: "ajju2004srivatsan-cloud",
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/ajay-srivatsan-3aa5131a0",
+  hackerrank: "https://www.hackerrank.com/profile/ajju2004srivats1",
   url: "https://ajju2004srivatsan-cloud.github.io",
   resumePath: "/resume.pdf",
   description:
@@ -756,7 +757,35 @@ export const achievements: Achievement[] = [
     detail: "Lightweight audio-visual speech enhancement, MNNIT Allahabad.",
     period: "2026",
   },
+  {
+    group: "Sport",
+    title: "Table tennis, district first",
+    detail: "First place in table tennis for three years at the Tuticorin district level.",
+  },
+  {
+    group: "Sport",
+    title: "Table tennis doubles, second place",
+    detail: "Second place in doubles table tennis.",
+  },
+  {
+    group: "Sport",
+    title: "Amrita table tennis, runner-up",
+    detail: "Runner-up for two years at Amrita Vishwa Vidyapeetham.",
+  },
 ];
+
+export const photography = {
+  line: "I love taking photographs.",
+  empty: "Photographs will be added here.",
+};
+
+export type Photo = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
+export const photos: Photo[] = [];
 
 export const categories: ProjectCategory[] = [
   "AI/ML",
@@ -791,6 +820,7 @@ export const nav = [
   { href: "/experience/", label: "Experience" },
   { href: "/achievements/", label: "Achievements" },
   { href: "/skills/", label: "Skills" },
+  { href: "/photos/", label: "Photos" },
   { href: "/resume/", label: "Resume" },
   { href: "/contact/", label: "Contact" },
 ];

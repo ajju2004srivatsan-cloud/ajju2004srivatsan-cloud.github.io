@@ -25,7 +25,8 @@ npx serve out
 - Profile, experience, projects, research, skills, achievements: `content/site.ts`
 - Replace the downloadable resume: `public/resume.pdf`
 - Repository categories and featured flags: `repositoryCatalog` in `content/site.ts`
-- LinkedIn: set `site.linkedin` (the resume does not include a URL, so the link stays hidden)
+- LinkedIn and HackerRank: `site.linkedin` and `site.hackerrank`
+- Photographs: add files under `public/photos/` and list them in the `photos` array
 
 The contact form opens the visitor’s email app with a message to `ajju2004srivatsan@gmail.com`. It does not store submissions.
 

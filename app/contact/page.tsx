@@ -16,12 +16,10 @@ export default function ContactPage() {
       <div className="links">
         <a href={`mailto:${site.email}`}>{site.email}</a>
         <a href={site.phoneHref}>{site.phone}</a>
-        <a href={site.github}>{site.github}</a>
-        {site.linkedin ? <a href={site.linkedin}>LinkedIn</a> : null}
+        <a href={site.github}>GitHub</a>
+        <a href={site.linkedin}>LinkedIn</a>
+        <a href={site.hackerrank}>HackerRank</a>
       </div>
-      {!site.linkedin ? (
-        <p className="note">Add a LinkedIn URL in content/site.ts and it will appear here.</p>
-      ) : null}
       <ContactForm />
     </Reveal>
   );

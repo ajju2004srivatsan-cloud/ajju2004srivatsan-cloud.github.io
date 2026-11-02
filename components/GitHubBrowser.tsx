@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { GitFork, Search, Star } from "lucide-react";
 import { site } from "@/content/site";
 import {
   categorizeRepo,
@@ -147,7 +146,6 @@ export function GitHubBrowser() {
     <div>
       <div className="toolbar">
         <label className="search">
-          <Search size={16} />
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
@@ -199,12 +197,8 @@ export function GitHubBrowser() {
               </div>
             </div>
             <div className="meta" style={{ marginTop: 0 }}>
-              <span>
-                <Star size={12} /> {repo.stars}
-              </span>
-              <span>
-                <GitFork size={12} /> {repo.forks}
-              </span>
+              <span>{repo.stars} stars</span>
+              <span>{repo.forks} forks</span>
             </div>
           </a>
         ))}

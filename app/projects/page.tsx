@@ -17,7 +17,7 @@ export default function ProjectsPage() {
       <p className="kicker">Projects</p>
       <h2 className="page-title">Engineering work, then the public code.</h2>
       <p className="quiet">Selected work, then the public repositories.</p>
-      <section className="section">
+      <section className="section spread">
         <h2>Selected</h2>
         {selected.map((project) => (
           <article key={project.slug} className="entry">
@@ -29,7 +29,7 @@ export default function ProjectsPage() {
           </article>
         ))}
       </section>
-      <section className="section">
+      <section className="section spread">
         <h2>Public code</h2>
         {code.map((project) => (
           <article key={project.slug} className="entry">

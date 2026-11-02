@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import type { Photo } from "@/content/site";
 import { withBase } from "@/lib/paths";
 
-export function PhotoGallery({ photos }: { photos: Photo[] }) {
+export function PhotoGallery({ photos, layout = "grid" }: { photos: Photo[]; layout?: "grid" | "film" }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [current, setCurrent] = useState<Photo | null>(null);
 
@@ -17,7 +17,7 @@ export function PhotoGallery({ photos }: { photos: Photo[] }) {
 
   return (
     <>
-      <div className="gallery">
+      <div className={layout === "film" ? "film" : "gallery"}>
         {photos.map((photo, index) => (
           <figure key={photo.src}>
             <button type="button" aria-label={photo.caption} onClick={() => setCurrent(photo)}>

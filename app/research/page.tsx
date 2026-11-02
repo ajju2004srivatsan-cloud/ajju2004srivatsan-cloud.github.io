@@ -14,9 +14,7 @@ export default function ResearchPage() {
     <Reveal>
       <p className="kicker">Research</p>
       <h2 className="page-title">Papers and talks.</h2>
-      <p className="quiet">
-        The SoCTA paper is cited by its Springer DOI. NGNDAI is linked as the conference, because that work is accepted and not yet a published chapter.
-      </p>
+      <p className="quiet">A published conference paper, and a presentation accepted for 2026.</p>
       {publications.map((paper) => (
         <article key={paper.id} className="entry">
           <p className="kicker">

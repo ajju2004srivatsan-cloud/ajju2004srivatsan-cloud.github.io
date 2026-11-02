@@ -4,7 +4,7 @@ import { education, experience } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Experience",
-  description: "Roles and education from Ajay Srivatsan R.'s resume.",
+  description: "Roles and education.",
 };
 
 export default function ExperiencePage() {

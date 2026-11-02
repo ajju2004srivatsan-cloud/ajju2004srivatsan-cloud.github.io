@@ -4,7 +4,7 @@ import { achievements, type Achievement } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Achievements",
-  description: "Academic results and conference presentations from the resume.",
+  description: "Academic record, conference work, and table tennis.",
 };
 
 const groups: Achievement["group"][] = ["Academic", "Award", "Certification", "Sport"];
@@ -16,6 +16,7 @@ export default function AchievementsPage() {
       <h2 className="page-title">Academic record and table tennis.</h2>
       {groups.map((group) => {
         const items = achievements.filter((item) => item.group === group);
+        if (items.length === 0) return null;
         return (
           <section key={group} className="section">
             <h2>
@@ -28,17 +29,13 @@ export default function AchievementsPage() {
                 }[group]
               }
             </h2>
-            {items.length === 0 ? (
-              <p className="empty">None listed. Add entries to the achievements array in content/site.ts.</p>
-            ) : (
-              items.map((item) => (
-                <article key={item.title} className="entry">
-                  <p className="kicker">{item.period}</p>
-                  <h3>{item.title}</h3>
-                  <p className="quiet">{item.detail}</p>
-                </article>
-              ))
-            )}
+            {items.map((item) => (
+              <article key={item.title} className="entry">
+                <p className="kicker">{item.period}</p>
+                <h3>{item.title}</h3>
+                <p className="quiet">{item.detail}</p>
+              </article>
+            ))}
           </section>
         );
       })}

@@ -161,7 +161,6 @@ export function HomeBoard({
         </div>
       </section>
       <h1 className="profile-name">{name}</h1>
-      <p className="hint">Click a word. The shelf follows.</p>
       <div className="words" role="group" aria-label="Focus">
         {lenses.map((item) => (
           <button key={item.id} type="button" aria-pressed={item.id === lensId} onClick={() => chooseLens(item)}>

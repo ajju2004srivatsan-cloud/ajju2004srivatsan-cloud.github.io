@@ -4,7 +4,7 @@ import { networkingTools, skills } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Skills",
-  description: "Technical skills grouped from Ajay Srivatsan R.'s resume.",
+  description: "Languages, tools, and systems used in the work.",
 };
 
 export default function SkillsPage() {
@@ -12,9 +12,6 @@ export default function SkillsPage() {
     <Reveal>
       <p className="kicker">Skills</p>
       <h2 className="page-title">Technical skills.</h2>
-      <p className="quiet">
-        Languages and tools come from the resume’s skills section, the two roles, and the project descriptions. Networking tools from the resume are listed after the main groups.
-      </p>
       {skills.map((group) => (
         <section key={group.id} className="skill-block">
           <h2>{group.title}</h2>

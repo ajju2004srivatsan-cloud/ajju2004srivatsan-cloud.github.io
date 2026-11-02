@@ -228,6 +228,8 @@ h2 {
   font-size: 0.8rem;
 }
 
+.meta a { border-bottom: 1px solid var(--line); }
+
 .links {
   display: flex;
   flex-direction: column;

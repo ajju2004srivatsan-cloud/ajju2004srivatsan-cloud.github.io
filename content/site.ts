@@ -263,7 +263,7 @@ export const projects: Project[] = [
     featured: true,
     period: "Accepted for presentation, 2026",
     summary:
-      "A multimodal speech-enhancement pipeline using a CRNN for audio and a ResNet for lip features, accepted for presentation at NGNDAI, MNNIT Allahabad.",
+      "A multimodal speech-enhancement pipeline using a CRNN for audio and a ResNet for lip features, accepted for presentation at NGNDAI-2026, MNNIT Allahabad.",
     overview:
       "Designed a multimodal pipeline that combines CRNN-based audio processing with ResNet lip-feature extraction to enhance speech in noisy environments. The model was reduced in size for real-time use and compared against audio-only baselines.",
     problem:
@@ -283,7 +283,7 @@ export const projects: Project[] = [
     ],
     results: [
       "Improved PESQ, STOI, and SNR relative to audio-only baselines.",
-      "Accepted for presentation at NGNDAI, MNNIT Allahabad (2026).",
+      "Accepted for presentation at NGNDAI-2026, MNNIT Allahabad, 24–26 September 2026.",
     ],
   },
   {
@@ -673,31 +673,43 @@ export type Publication = {
   authors: string[];
   venue: string;
   year: string;
-  kind: "Presentation" | "Publication scheduled" | "Workshop";
+  kind: "Conference paper" | "Accepted presentation";
   summary: string;
-  href?: string;
+  citation: string;
+  links: { label: string; href: string }[];
 };
 
 export const publications: Publication[] = [
   {
+    id: "socta-2025",
+    title: "A Comparative Study of Trapdoor Sampling Algorithms for Lattice-Based Cryptography",
+    authors: ["R. Ajay Srivatsan", "Sai Karthik Rajan", "Uthara Nair", "P. Sudheesh"],
+    venue:
+      "SoCTA 2025, Dr. B. R. Ambedkar NIT Jalandhar, 27–29 December 2025. Lecture Notes in Networks and Systems, vol. 1980, Springer, Cham",
+    year: "2026",
+    kind: "Conference paper",
+    summary:
+      "Presented at SoCTA 2025 and published in the Springer proceedings. Book of abstracts entry 455. The study compares the MP12, GM18, ZY22, and FDP trapdoor samplers.",
+    citation:
+      "Ajay Srivatsan, R., Rajan, S. K., Nair, U., and Sudheesh, P. (2026). A Comparative Study of Trapdoor Sampling Algorithms for Lattice-Based Cryptography. In Sharma, T. K., Wang, L., Verma, O. P., and Rajpurohit, J. (eds.), Soft Computing: Theories and Applications, SoCTA 2025. Lecture Notes in Networks and Systems, vol. 1980. Springer, Cham.",
+    links: [
+      { label: "DOI", href: "https://doi.org/10.1007/978-3-032-26370-4_29" },
+      { label: "Book of abstracts, 455", href: "https://socta.in/socta2025/pdf/BoA.pdf" },
+    ],
+  },
+  {
     id: "ngndai-2026",
     title: "Lightweight Audio-Visual Speech Enhancement System",
     authors: ["Ajay Srivatsan R."],
-    venue: "NGNDAI, MNNIT Allahabad",
+    venue:
+      "2nd International Conference on Next-Generation Networks and Deployable Artificial Intelligence (NGNDAI-2026), MNNIT Allahabad, Prayagraj, 24–26 September 2026",
     year: "2026",
-    kind: "Presentation",
+    kind: "Accepted presentation",
     summary:
-      "Accepted for presentation in 2026. Multimodal pipeline combining CRNN-based audio processing with ResNet lip-feature extraction, reduced in size for real-time use, with improvement over audio-only baselines on PESQ, STOI, and SNR.",
-  },
-  {
-    id: "socta-2025",
-    title: "A Comparative Study of Trapdoor Sampling Algorithms for Lattice-Based Cryptography",
-    authors: ["Ajay Srivatsan R."],
-    venue: "SoCTA 2025, International Conference on Soft Computing: Theories and Applications, NIT Jalandhar",
-    year: "2025",
-    kind: "Publication scheduled",
-    summary:
-      "Presented at SoCTA 2025, NIT Jalandhar. Publication scheduled for 2026.",
+      "Accepted for presentation. The conference proceedings are approved for Springer’s Lecture Notes in Networks and Systems. This entry is the acceptance, not a published chapter.",
+    citation:
+      "Ajay Srivatsan R. Lightweight Audio-Visual Speech Enhancement System. Accepted for presentation at NGNDAI-2026, MNNIT Allahabad, 24–26 September 2026.",
+    links: [{ label: "Conference", href: "https://www.ngndai.mnnit.ac.in/" }],
   },
 ];
 
@@ -745,15 +757,16 @@ export const achievements: Achievement[] = [
   },
   {
     group: "Academic",
-    title: "SoCTA 2025 presentation",
+    title: "SoCTA 2025 paper",
     detail:
-      "Presented “A Comparative Study of Trapdoor Sampling Algorithms for Lattice-Based Cryptography” at NIT Jalandhar. Publication scheduled for 2026.",
-    period: "2025",
+      "“A Comparative Study of Trapdoor Sampling Algorithms for Lattice-Based Cryptography,” with Sai Karthik Rajan, Uthara Nair, and P. Sudheesh. Presented at NIT Jalandhar and published in Springer LNNS, vol. 1980.",
+    period: "2026",
   },
   {
     group: "Academic",
-    title: "NGNDAI presentation accepted",
-    detail: "Lightweight audio-visual speech enhancement, MNNIT Allahabad.",
+    title: "NGNDAI-2026 presentation accepted",
+    detail:
+      "Lightweight audio-visual speech enhancement. Conference at MNNIT Allahabad, 24–26 September 2026. Not yet a published chapter.",
     period: "2026",
   },
   {
